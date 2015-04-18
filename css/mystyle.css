@@ -1,0 +1,26 @@
+/**{
+    margin: 0px;
+    padding: 0px;
+}*/
+body{
+    padding-top: 3.2em;
+     background-image: url("../assets/bg_image.jpg");
+}
+h5{
+    font-size: xx-large;
+    font-family: "Cantarell",cursive;
+    color: crimson;
+}
+.index-container{
+   
+}
+.loginBtn{
+
+}
+
+footer{
+    text-align: center;
+    background-color: black;
+    font-family: tahoma;
+    color: white;
+}
