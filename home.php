@@ -49,7 +49,7 @@ include 'layout/_top_nav.php';
                     <div class="form-group">
                         <label class="col-sm-6">Search for donor by city </label>
                         <div class="col-sm-4">
-                            <input type="text" name="city" value="" class="form-control"/>
+                            <input type="text" name="city" value="" required="true" class="form-control"/>
                         </div>
                         <div class="col-sm-2">
                             <button class="btn btn-info btn-sm" name="searchByCityBtn" >Search</button>
@@ -63,8 +63,24 @@ include 'layout/_top_nav.php';
     </div>
 
     <div class="row">
-        <div class="col-md-1"></div>
+        <div class="col-md-1">         
+        </div>
         <div class="col-md-10">
+            <!-- If the donor is searched by a particular blood group -->
+            <?php if(isset($_POST['searchBtn'])): ?>
+                <?php if(isset($donors[0])): ?>
+                    <label>Total Blood Units Available for <?= $donors[0]['b_type']; ?>:</label> <span class="emphasize"><?= count($donors); ?> Unit</span>
+                <?php endif; ?>
+            <?php endif; ?>
+            
+            <!-- If the donor is search by a particular City -->
+            <?php if(isset($_POST['searchByCityBtn'])): ?>
+                <?php if(isset($donors[0])): ?>
+                    <label>Total Number of Donors in this City:</label> <span class="emphasize"><?= count($donors); ?></span>
+                <?php endif; ?>
+            <?php endif; ?>
+            
+            <!-- if result has been fetched succesffully -->
             <?php if (isset($donors)): ?>
                 <table class="table table-condensed">
                     <tr>
@@ -86,7 +102,7 @@ include 'layout/_top_nav.php';
                         }
                         ?>" >
                             <td><?= $i; ?></td>
-                            <td><?= $d['fname'] . " " . $d['mname'] . " " . $d['lname']; ?></td>
+                            <td><a href="profile.php?id=<?= $d['id']; ?>"><?= $d['fname'] . " " . $d['mname'] . " " . $d['lname']; ?></a></td>
                             <td><?= $d['sex']; ?></td>
                             <td><?= wordwrap($d['h_address'], 20, "<br>"); ?></td>
                             <td><?= $d['city']; ?></td>

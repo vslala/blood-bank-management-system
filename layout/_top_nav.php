@@ -7,8 +7,8 @@
                     <div class="h4" id="logo"><a href="index.php">Blood Bank </a></div>
                 </div>
             </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-4">
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
                 <div class="pull-right">
                     <ul class="nav nav-pills">
                         <li class="<?php
@@ -25,6 +25,9 @@
                             echo '';
                         }
                         ?>"><a href="donor.php">New Donor</a></li>
+<!--                        <li class="<?php if(isset($setBloodRequestActive)){ echo $setBloodRequestActive; } else { echo ''; } ?>">
+                            <a href="blood_request.php">Blood Requests</a>
+                        </li>-->
                         <li><a href="logout.php">Logout</a></li>
                         
                     </ul>

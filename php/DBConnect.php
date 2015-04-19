@@ -42,6 +42,16 @@ class DBConnect {
         }
     }
     
+    public function checkAuth(){
+        session_start();
+        if(! isset($_SESSION['username'])){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
     public function login($username, $password){
         $stmt = $this->db->prepare("SELECT * FROM employees WHERE username=? AND password=?");
         $stmt->execute([$username,$password]);
@@ -96,6 +106,12 @@ class DBConnect {
         session_start();
         session_destroy();
         header("Location: http://localhost/BDManagement/");
+    }
+    
+    public function getDonorProfileById($id){
+        $stmt = $this->db->prepare("SELECT * FROM donors WHERE id=?");
+        $stmt->execute([$id]);
+        return $stmt->fetchAll();
     }
     
 }

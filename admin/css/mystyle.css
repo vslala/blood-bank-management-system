@@ -6,7 +6,11 @@ body{
     padding-top: 3.2em;
     
 }
-
+h5{
+    font-size: xx-large;
+    font-family: "Cantarell",cursive;
+    color: crimson;
+}
 .loginBtn{
 
 }

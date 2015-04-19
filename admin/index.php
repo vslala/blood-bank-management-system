@@ -1,4 +1,8 @@
 <?php
+require_once 'php/DBConnect.php';
+$db = new DBConnect();
+$db->checkAuth();
+
 $invalid = NULL;
 if(isset($_POST['loginBtn'])){
     $username = $_POST['username'];
@@ -6,6 +10,8 @@ if(isset($_POST['loginBtn'])){
     
     if($username == "vs_lala"){
         if($password == "123"){
+            session_start();
+            $_SESSION['username'] = $username;
             header("Location: http://localhost/BDManagement/admin/home.php");
         } else {
             $invalid = "Invalid Password!";
@@ -31,7 +37,7 @@ include 'layout/_header.php';
                 <div class="col-md-4">
                     <img src="assets/security-icon.png" class="img img-responsive img-thumbnail">
                 </div>
-                <h5>Admin Login</h5>
+                <h3>Admin Login</h3>
             </div>
             <div class="panel-body">
                 <form class="form-vertical" role="form" method="post" action="index.php">

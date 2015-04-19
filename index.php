@@ -17,7 +17,6 @@ if(isset($_POST['loginBtn'])){
 }
 $title="Login";
 include 'layout/_header.php'; 
-    
 ?>
 
 <div class="container index-container">
@@ -56,3 +55,4 @@ include 'layout/_header.php';
 </div>
 
 <?php include 'layout/_footer.php'; ?>
+

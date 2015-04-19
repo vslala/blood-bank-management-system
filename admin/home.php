@@ -1,6 +1,11 @@
 <?php
-    $success = NULL; $message = NULL;
-if(isset($_POST['submit'])){
+require_once 'php/DBConnect.php';
+$db = new DBConnect();
+$db->auth();
+
+$success = NULL;
+$message = NULL;
+if (isset($_POST['submit'])) {
     $firstName = $_POST['firstName'];
     $middleName = $_POST['middleName'];
     $lastName = $_POST['lastName'];
@@ -11,19 +16,17 @@ if(isset($_POST['submit'])){
     $landline = $_POST['landline'];
     $mobile = $_POST['mobile'];
     $pcrNumber = uniqid();
-    
-    require_once 'php/DBConnect.php';
-    $db = new DBConnect();
+
     $flag = $db->addEmployee($username, $password, $firstName, $middleName, $lastName, $pcrNumber, $designation, $landline, $mobile, $dob);
-    
-    if($flag){
+
+    if ($flag) {
         $success = "User has been added to the database successfully!";
-    }else{
+    } else {
         $message = "Error adding the employee to the database!";
     }
-    
 }
-$title="Admin Home";$setHomeActive="active";
+$title = "Admin Home";
+$setHomeActive = "active";
 include 'layout/_header.php';
 include 'layout/_top_nav.php';
 ?>
@@ -31,14 +34,14 @@ include 'layout/_top_nav.php';
 <div class="container">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-        
-        <?php if(isset($success)): ?>
-        <div class="alert-success"><?= $success; ?></div>
+
+        <?php if (isset($success)): ?>
+            <div class="alert-success"><?= $success; ?></div>
         <?php endif ?>
-        <?php if(isset($message)): ?>
-        <div class="alert-success"><?= $message; ?></div>
-        <?php endif ?>
-        
+        <?php if (isset($message)): ?>
+            <div class="alert-success"><?= $message; ?></div>
+<?php endif ?>
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>Add Employee</h3>
@@ -65,7 +68,7 @@ include 'layout/_top_nav.php';
                     </div>
                     <div class="form-group">
                         <label class="col-md-3">Designation:</label>
-                       <div class="col-sm-9"><input type="text" name="designation" class="form-control" required="true"></div>
+                        <div class="col-sm-9"><input type="text" name="designation" class="form-control" required="true"></div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3">Landline:</label>
