@@ -30,7 +30,7 @@ include 'layout/_top_nav.php';
             </p>
         </div>
         <div class="col-md-2">
-            <img src="http://bbmspunjab.gov.in/images/bbmsLeft.png" class="img img-responsive img-thumbnail">
+            <img src="../assets/donate_blood_right.jpg" class="img img-responsive img-thumbnail" style="width:200px ;">
              <img src="http://bbmspunjab.gov.in/images/bbmsRht.png" class="img img-responsive img-thumbnail">
         </div>
 

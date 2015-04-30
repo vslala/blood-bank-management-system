@@ -44,6 +44,7 @@ include 'layout/_header.php';
                     </div>
                     <div class="form-group loginBtn">
                         <button type="submit" name="loginBtn" class="btn btn-primary btn-sm">Login</button>
+                        <a href="users/" class="btn btn-sm btn-warning">I do not have username or password</a>
                     </div>
                 </form>
             </div>
