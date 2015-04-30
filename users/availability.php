@@ -34,7 +34,7 @@ include 'layout/_top_nav.php';
             </form>
             <br>
             <div class="form-group">
-                <?php if(isset($donors)): ?>
+                <?php if(isset($donors[0])): ?>
                 <label>Total number of donors with <?= $donors[0]['b_type']; ?> </label><div class="emphasize"><?= count($donors); ?> Donors</div>
                 <table class="table table-condensed">
                     <thead>

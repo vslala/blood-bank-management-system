@@ -25,7 +25,11 @@
                             echo '';
                         }
                         ?>"><a href="donor.php">New Donor</a></li>
-<!--                        <li class="<?php if(isset($setBloodRequestActive)){ echo $setBloodRequestActive; } else { echo ''; } ?>">
+                        
+                        <li class="<?php if(isset($setMemberActive)) { echo $setMemberActive; } else { echo ''; } ?>">
+                            <a href="members.php">Our Members</a>
+                        </li>
+<!--                        <li class="<?php //if(isset($setBloodRequestActive)){ echo $setBloodRequestActive; } else { echo ''; } ?>">
                             <a href="blood_request.php">Blood Requests</a>
                         </li>-->
                         <li><a href="logout.php">Logout</a></li>
