@@ -52,8 +52,10 @@ class DBConnect {
     public function addEmployee($username,$password,$firstName,$middleName,$lastName,$pcrNumber,$designation,$landline,$mobile,$birthDay){
         $stmt = $this->db->prepare("INSERT INTO employees (f_name,m_name,l_name,username,password,b_day,designation,landline,mobile_nr, prc_nr)"
                 . "VALUES (?,?,?,?,?,?,?,?,?,?)");
-        $stmt->execute([$firstName,$middleName,$lastName,$username,$password,$birthDay,$designation,$landline,$mobile,$pcrNumber]);
-        return true;
+        if($stmt->execute([$firstName,$middleName,$lastName,$username,$password,$birthDay,$designation,$landline,$mobile,$pcrNumber]))
+            return true;
+        else
+            return $this->db->errorInfo();
     }
     
     public function getEmployees(){

@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     if ($flag) {
         $success = "User has been added to the database successfully!";
     } else {
-        $message = "Error adding the employee to the database!";
+        $message = "Error adding the employee to the database!". $flag;
     }
 }
 $title = "Admin Home";
